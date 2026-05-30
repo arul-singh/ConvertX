@@ -31,7 +31,7 @@ NOTE: You do not need to pre-install libraries like PyQt6, Pillow, or pdf2docx m
 
 1. Clone this repository:
 ```bash
-git clone [https://github.com/arul-singh/ConvertX.git](https://www.google.com/search?q=https://github.com/arul-singh/ConvertX.git)\
+git clone https://github.com/arul-singh/ConvertX.git
 cd ConvertX
 ```
 
