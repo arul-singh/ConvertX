@@ -1,0 +1,33 @@
+name: Build Windows Executable
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install PyQt6 pillow pdf2docx pyinstaller
+
+    - name: Build with PyInstaller
+      run: |
+        pyinstaller --noconsole --onefile --name="ConvertX" app.py
+
+    - name: Upload Executable Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ConvertX-Windows-Exe
+        path: dist/ConvertX.exe
